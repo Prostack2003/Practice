@@ -1,14 +1,105 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
     <title>Practice</title>
 </head>
 <body>
 
+<div>
+    <p>Задача 1. Добавьте JavaScript к кнопке button, чтобы при нажатии элемент div id="text" исчезал.</p>
+    <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+    <div id="text">Текст</div>
+</div>
+<div>
+    <p>Задача 2. Спрятать кнопку при клике.</p>
+    <button class="button" type="button">Спрячь меня</button>
+</div>
+
+
+<div>
+    <p>Задача 3. Выпадающее меню</p>
+    <div class='menu-button' style="cursor: pointer">
+        <img class="menu-button-img" style="width: 15px" src="images/arrow-down-sign-to-navigate.png" alt="arrow">
+        <span class="list-button">Сладости (нажми меня)!</span>
+    </div>
+    <ul class="list-menu" style="cursor: default" >
+        <li class="list-menu__item">Пирожное</li>
+        <li class="list-menu__item">Пончик</li>
+        <li class="list-menu__item">Мёд</li>
+    </ul>
+</div>
+
+<div id="carousel" class="carousel">
+    <p>Задача 4. Карусель</p>
+    <button type="button" class="arrow prev">⇦</button>
+    <div class="gallery">
+        <ul class="list-image">
+            <li><img src="https://ru.js.cx/carousel/1.png"></li>
+            <li><img src="https://ru.js.cx/carousel/2.png"></li>
+            <li><img src="https://ru.js.cx/carousel/3.png"></li>
+            <li><img src="https://ru.js.cx/carousel/4.png"></li>
+            <li><img src="https://ru.js.cx/carousel/5.png"></li>
+            <li><img src="https://ru.js.cx/carousel/6.png"></li>
+            <li><img src="https://ru.js.cx/carousel/7.png"></li>
+            <li><img src="https://ru.js.cx/carousel/8.png"></li>
+            <li><img src="https://ru.js.cx/carousel/9.png"></li>
+            <li><img src="https://ru.js.cx/carousel/10.png"></li>
+        </ul>
+    </div>
+    <button type="button" class="arrow next">⇨</button>
+</div>
+
+<div>
+    <p>Задача 5. Делегирование списка</p>
+    <ul class="tree" id="tree">
+        <li>Животные
+            <ul>
+                <li>Млекопитающие
+                    <ul>
+                        <li>Коровы</li>
+                        <li>Ослы</li>
+                        <li>Собаки</li>
+                        <li>Тигры</li>
+                    </ul>
+                </li>
+                <li>Другие
+                    <ul>
+                        <li>Змеи</li>
+                        <li>Птицы</li>
+                        <li>Ящерицы</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Рыбы
+            <ul>
+                <li>Аквариумные
+                    <ul>
+                        <li>Гуппи</li>
+                        <li>Скалярии</li>
+                    </ul>
+                </li>
+                <li>Морские
+                    <ul>
+                        <li>Морская форель</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<fieldset id="contents">
+    <legend>Задача 6. Перехват ссылки и прерывание события</legend>
+    <p>
+        Как насчёт того, чтобы прочитать <a href="https://wikipedia.org">Википедию</a> или посетить <a href="https://w3.org"><i>W3.org</i></a> и узнать о современных стандартах?
+    </p>
+</fieldset>
 <script src="script.js"></script>
 </body>
 </html>
