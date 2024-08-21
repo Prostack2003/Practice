@@ -1,7 +1,7 @@
 // Задача 1. Исчезновение элемента-текста
 
-let button = document.getElementById('hider');
-let textElement = document.getElementById('text');
+const button = document.getElementById('hider');
+const textElement = document.getElementById('text');
 
 button.addEventListener('click', () => {
     textElement.style.display = 'none';
@@ -11,7 +11,7 @@ button.addEventListener('click', () => {
 
 // Задача 2. Спрятать кнопку
 
-let buttonElement = document.querySelector('.button');
+const buttonElement = document.querySelector('.button');
 
 buttonElement.onclick = function () {
     this.style.display = 'none';
@@ -21,9 +21,9 @@ buttonElement.onclick = function () {
 
 // Задача 3. Выпадающее меню
 
-let menu = document.querySelector(".list-menu");
-let menuButton = document.querySelector(".menu-button")
-let menuImage = document.querySelector(".menu-button-img");
+const menu = document.querySelector(".list-menu");
+const menuButton = document.querySelector(".menu-button")
+const menuImage = document.querySelector(".menu-button-img");
 
     menuButton.addEventListener('click', () => {
         menu.classList.toggle('list-menu--hidden');
@@ -33,9 +33,9 @@ let menuImage = document.querySelector(".menu-button-img");
 
 // Задача 4. Карусель
 
-let prevButton = document.querySelector(".prev");
-let nextButton = document.querySelector(".next");
-let listImage = document.querySelector(".list-image");
+const prevButton = document.querySelector(".prev");
+const nextButton = document.querySelector(".next");
+const listImage = document.querySelector(".list-image");
 
 prevButton.addEventListener('click', () => {
     let marginLeft = parseInt(listImage.style.marginLeft) || 0;
@@ -59,7 +59,7 @@ nextButton.addEventListener('click', () => {
 
 // Задача 5. Делегирование списка
 
-let listElement = document.querySelector(".tree");
+const listElement = document.querySelector(".tree");
 
 listElement.addEventListener('click', (event) => {
     let target = event.target;
@@ -73,3 +73,23 @@ listElement.addEventListener('click', (event) => {
 });
 
 // Задача 5. Делегирование списка
+
+// Задача 6. Перехват ссылки и прерывание события
+
+const contentsLinks = document.getElementById('contents');
+const links = contentsLinks.getElementsByTagName('a');
+
+
+contentsLinks.addEventListener('click', function (event) {
+    let target = event.target.closest('a');
+    if (target) {
+        let verify = confirm('Вы хотите перейти по ссылке?')
+        for (let link of links) {
+            if (target.href === link.href && verify === false) {
+                event.preventDefault();
+            }
+        }
+    }
+})
+
+// Задача 6. Перехват ссылки и прерывание события
