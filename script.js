@@ -56,3 +56,20 @@ nextButton.addEventListener('click', () => {
 });
 
 // Задача 4. Карусель
+
+// Задача 5. Делегирование списка
+
+let listElement = document.querySelector(".tree");
+
+listElement.addEventListener('click', (event) => {
+    let target = event.target;
+    for (let elem of target.children) {
+        if (elem.style.display === 'none') {
+            elem.style.display = 'block';
+        } else {
+            elem.style.display = 'none';
+        }
+    }
+});
+
+// Задача 5. Делегирование списка
