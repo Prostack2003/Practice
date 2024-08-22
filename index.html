@@ -5,10 +5,102 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="styles.css" rel="stylesheet">
     <title>Practice</title>
 </head>
 <body>
+<div>
+    <p>
+        Задача 1.Добавить пункт к выпадающему списку
+    </p>
+    <select id="genres">
+        <option value="rock">Рок</option>
+        <option value="blues" selected>Блюз</option>
+    </select>
+</div>
 
+<div>
+    <p>
+        Задача 2. Депозитный калькулятор с изменением в реальном времени
+    </p>
+    <form name="calculator">
+        <table>
+            <tr>
+                <td>Первоначальный депозит</td>
+                <td>
+                    <input name="money" type="number" value="10000" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Срок вклада?</td>
+                <td>
+                    <select name="months">
+                        <option value="3">3 (минимум)</option>
+                        <option value="6">6 (полгода)</option>
+                        <option value="12" selected>12 (год)</option>
+                        <option value="18">18 (1.5 года)</option>
+                        <option value="24">24 (2 года)</option>
+                        <option value="30">30 (2.5 года)</option>
+                        <option value="36">36 (3 года)</option>
+                        <option value="60">60 (5 лет)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Годовая процентная ставка?</td>
+                <td>
+                    <input name="interest" type="number" value="5" required>
+                </td>
+            </tr>
+        </table>
+
+
+    </form>
+
+
+    <table id="diagram">
+        <tr>
+            <th>Было:</th>
+            <th>Станет:</th>
+        </tr>
+        <tr>
+            <th id="money-before"></th>
+            <th id="money-after"></th>
+        </tr>
+        <td>
+            <div style="background: red;width:40px;height:100px"></div>
+        </td>
+        <td>
+            <div style="background: green;width:40px;height:0" id="height-after"></div>
+        </td>
+    </table>
+
+</div>
+
+<div>
+    <p>
+        Задача 3. Создание формы - сброс, фокус, отправка
+    </p>
+    <form id="reset">
+        <label>
+            Имя
+            <input type="text" name="username">
+            <div class="error" id="user-error"></div>
+        </label>
+        <label>
+            Почта
+            <input type="email" name="email">
+            <div class="error" id="email-error"></div>
+        </label>
+        <label>
+            Пароль
+            <input type="password" name="password">
+            <div class="error" id="password-error"></div>
+        </label>
+        <button type="submit">Отправить</button>
+        <button type="button">Сбросить</button>
+    </form>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
