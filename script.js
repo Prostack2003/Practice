@@ -44,3 +44,50 @@ form.elements.months.addEventListener('change', updateCalculation);
 updateCalculation();
 
 //  Задача 2. Депозитный калькулятор с изменением в реальном времени
+
+//  Задача 3. Создание формы - сброс, фокус, отправка
+
+const formSubmit = document.querySelector('#reset');
+const buttonReset = document.querySelector('button[type="button"]');
+
+buttonReset.addEventListener('click', () => {
+    formSubmit.reset()
+    document.querySelector('#user-error').textContent = '';
+    document.querySelector('#email-error').textContent = '';
+    document.querySelector('#password-error').textContent = '';
+})
+
+formSubmit.addEventListener('submit', (event) => {
+    let valid = true;
+
+    const username = formSubmit.elements['username'].value.trim();
+    if (username === '') {
+        document.querySelector('#user-error').textContent = '*Имя обязательно к заполнению!';
+        valid = false;
+    } else if (username.length <= 4) {
+        document.querySelector('#user-error').textContent = '*Имя должно содержать более 4 символов!';
+        valid = false;
+    }
+
+    const email = formSubmit.elements['email'].value.trim();
+    if (email === '') {
+        document.querySelector('#email-error').textContent = '*Почта обязательна к заполнению';
+        valid = false;
+    }
+
+    const password = formSubmit.elements['password'].value.trim();
+    if (password === '') {
+        document.querySelector('#password-error').textContent = '*Пароль обязателен для заполнения';
+        valid = false;
+    } else if (password.length <= 6) {
+        document.querySelector('#password-error').textContent = '*Пароль должен содержать более 6 символов';
+        valid = false;
+    }
+
+    if (!valid) {
+        event.preventDefault();
+    }
+})
+
+
+//  Задача 3. Создание формы - сброс, фокус, отправка
