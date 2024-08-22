@@ -49,20 +49,41 @@ updateCalculation();
 
 const formSubmit = document.querySelector('#reset');
 const buttonReset = document.querySelector('button[type="button"]');
+const selectors = {
+    username: '#user-error',
+    userEmail: '#email-error',
+    userPassword: '#password-error'
+};
+const selectorsMessage = {
+    nameText: '*Имя обязательно к заполнению!',
+    mailText: '*Почта обязательна к заполнению!',
+    passwordText: '*Пароль обязателен для заполнения!',
+};
+
+function cleanForm() {
+    for (let selector in selectors) {
+        document.querySelector(selectors[selector]).textContent = '';
+    }
+}
+
+function messageInput(selector, text) {
+    const element = document.querySelector(selectors[selector]);
+    if (element) {
+        element.textContent = selectorsMessage[text];
+    }
+}
 
 buttonReset.addEventListener('click', () => {
-    formSubmit.reset()
-    document.querySelector('#user-error').textContent = '';
-    document.querySelector('#email-error').textContent = '';
-    document.querySelector('#password-error').textContent = '';
-})
+    formSubmit.reset();
+    cleanForm();
+});
 
 formSubmit.addEventListener('submit', (event) => {
     let valid = true;
 
     const username = formSubmit.elements['username'].value.trim();
     if (username === '') {
-        document.querySelector('#user-error').textContent = '*Имя обязательно к заполнению!';
+        messageInput('username', 'nameText');
         valid = false;
     } else if (username.length <= 4) {
         document.querySelector('#user-error').textContent = '*Имя должно содержать более 4 символов!';
@@ -71,13 +92,13 @@ formSubmit.addEventListener('submit', (event) => {
 
     const email = formSubmit.elements['email'].value.trim();
     if (email === '') {
-        document.querySelector('#email-error').textContent = '*Почта обязательна к заполнению';
+        messageInput('userEmail', 'mailText');
         valid = false;
     }
 
     const password = formSubmit.elements['password'].value.trim();
     if (password === '') {
-        document.querySelector('#password-error').textContent = '*Пароль обязателен для заполнения';
+        messageInput('userPassword', 'passwordText');
         valid = false;
     } else if (password.length <= 6) {
         document.querySelector('#password-error').textContent = '*Пароль должен содержать более 6 символов';
@@ -87,7 +108,8 @@ formSubmit.addEventListener('submit', (event) => {
     if (!valid) {
         event.preventDefault();
     }
-})
+});
+
 
 
 //  Задача 3. Создание формы - сброс, фокус, отправка
