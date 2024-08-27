@@ -29,3 +29,24 @@ class MathUtils {
 console.log(MathUtils.add(1, 2));
 console.log(MathUtils.subtract(2, 1));
 // 3. Создай класс для структуры данных Стэк создай методы pop и push
+
+class Stack {
+    constructor(arr) {
+        this.arr = arr;
+    }
+
+    pop() {
+        if (this.arr.length === 0) {
+            console.log("Стэк пустой!");
+        } else {
+            return this.arr.pop();
+        }
+    }
+
+    push(value) {
+        this.arr.push(value);
+    }
+}
+
+const stack = new Stack([])
+console.log(stack.arr)
