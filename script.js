@@ -15,4 +15,17 @@ const vladimir = new Person('Владимир', 21)
 vladimir.introduce()
 
 // 2. Создай класс MathUtils со статическими методами  add and subtract.
+
+class MathUtils {
+    static add(firstValue, secondValue) {
+        return firstValue + secondValue;
+    }
+
+    static subtract(firstValue, secondValue) {
+        return firstValue - secondValue;
+    }
+}
+
+console.log(MathUtils.add(1, 2));
+console.log(MathUtils.subtract(2, 1));
 // 3. Создай класс для структуры данных Стэк создай методы pop и push
