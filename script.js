@@ -120,3 +120,101 @@ bankAccount.deposit(100);
 bankAccount.withdraw(1000);
 console.log(bankAccount.balance)
 
+// 6. Класс "Автомобиль"
+
+class Car {
+    _fuelLevel = 0;
+
+    constructor(brand, model, year, fuelTankCapacity) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.fuelTankCapacity = fuelTankCapacity;
+    }
+
+    startEngine() {
+        return 'Двигатель запущен';
+    }
+
+    getCarInfo() {
+        return `
+        Ваш автомобиль - это ${this.brand}, ${this.model}, ${this.year} года.
+        Емкость бака - ${this.fuelTankCapacity} литров.
+        `;
+    }
+
+    setFuelLevel(liters) {
+        if (liters < 0) {
+            return 'Количество топлива не может быть отрицательным!';
+        }
+
+        if (this._fuelLevel + liters > this.fuelTankCapacity) {
+            const overflow = this._fuelLevel + liters - this.fuelTankCapacity;
+            this._fuelLevel = this.fuelTankCapacity;
+            return `Бак заполнен. Осталось ${overflow} литров лишнего топлива, которое не влезло.`;
+        }
+
+        this._fuelLevel += liters;
+        return `Заправлено ${liters} литров. Текущий уровень топлива: ${this._fuelLevel} литров.`;
+    }
+
+    getFuelLevel() {
+        return `Текущий уровень топлива: ${this._fuelLevel} литров.`;
+    }
+}
+
+const myCar = new Car('Lada', 'Granta', 2024, 50);
+
+console.log(myCar.startEngine());
+console.log(myCar.getCarInfo());
+console.log(myCar.setFuelLevel(20));
+console.log(myCar.getFuelLevel());
+console.log(myCar.setFuelLevel(35));
+console.log(myCar.getFuelLevel());
+
+// 7. Класс "Электронный Кошелек"
+
+class EWallet {
+    constructor(owner, balance = 0, transactionHistory) {
+        this.owner = owner;
+        this.balance = balance;
+        this.transactionHistory = [];
+    }
+
+    addMoney(amount) {
+        if (amount <= 0) {
+            return 'Сумма пополнения должна быть положительной!';
+        }
+        this.balance += amount;
+        this.transactionHistory.push({'Баланс после пополнения': this.balance, 'Сумма Пополнения': amount})
+        return `На счёт зачислено ${amount} Rub. На вашем счёте теперь ${this.balance} Rub.`;
+    }
+
+    makePayment(amount) {
+        if (amount <= 0) {
+            return 'Сумма платежа должна быть положительной!';
+        }
+        if (amount > this.balance) {
+            return `Ваш баланс = ${this.balance} Rub. Недостаточно средств для выполнения платежа.`;
+        }
+        this.balance -= amount;
+        this.transactionHistory.push({'Баланс после снятия': this.balance, 'Сумма Снятия': amount})
+        return `Платёж на сумму ${amount} Rub выполнен успешно. Ваш текущий баланс = ${this.balance} Rub.`;
+    }
+
+    getBalance() {
+        return `Ваш баланс = ${this.balance} Rub.`;
+    }
+
+    getTransactionHistory() {
+        return this.transactionHistory;
+    }
+}
+
+
+const myWallet = new EWallet('Владимир', 1000);
+
+console.log(myWallet.getBalance());
+console.log(myWallet.addMoney(1000));
+console.log(myWallet.makePayment(1500));
+console.log(myWallet.getTransactionHistory());
