@@ -218,3 +218,56 @@ console.log(myWallet.getBalance());
 console.log(myWallet.addMoney(1000));
 console.log(myWallet.makePayment(1500));
 console.log(myWallet.getTransactionHistory());
+
+// 8. Класс "Employee"
+
+class Employee {
+    constructor(name, position, salary) {
+        this.name = name;
+        this.position = position;
+        this.salary = salary;
+    }
+
+    getDetails() {
+        return `Имя сотрудника - ${this.name}, Должность - ${this.position}, Зарплата - ${this.salary}`;
+    }
+
+    promote(newPosition, salaryIncrease) {
+        this.position = newPosition;
+        this.salary += salaryIncrease
+    }
+}
+
+const employee = new Employee('John Doe', 'Developer', 50000);
+console.log(employee.getDetails()); // "Имя: John Doe, Должность: Developer, Зарплата: 50000"
+employee.promote('Senior Developer', 10000);
+console.log(employee.getDetails()); // "Имя: John Doe, Должность: Senior Developer, Зарплата: 60000"
+
+// 9.  Класс "LibraryBook"
+
+class LibraryBook {
+    constructor(title, author, isAvailable = true) {
+        this.title = title;
+        this.author = author;
+        this.isAvailable = isAvailable;
+    }
+
+    borrow() {
+        this.isAvailable = false;
+    }
+
+    returnBook() {
+        this.isAvailable = true;
+    }
+
+    getInfo() {
+        return `Название: ${this.title}, Автор: ${this.author}, Доступна: ${this.isAvailable === true ? 'Да' : 'Нет' }`
+    }
+}
+
+const book = new LibraryBook('1984', 'George Orwell');
+console.log(book.getInfo()); // "Название: 1984, Автор: George Orwell, Доступна: да"
+book.borrow();
+console.log(book.getInfo()); // "Название: 1984, Автор: George Orwell, Доступна: нет"
+book.returnBook();
+console.log(book.getInfo()); // "Название: 1984, Автор: George Orwell, Доступна: да"
